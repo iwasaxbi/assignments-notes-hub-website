@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASSIGNMENTS AND NOTES HUB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="site-logo">
+        <span class="logo-icon">📚</span>
+        <span class="logo-text">
+          <span class="logo-gradient">ASSIGNMENTS & NOTES</span>
+          <span class="logo-hub">HUB</span>
+        </span>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Attendance</a></li>
+          <li><a href="#">Upload</a></li>
+          <li><a href="#">Notes</a></li>
+          <li><a href="#">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-banner">
+    <div class="hero-text">
+      <h2>All, your Assignments & Notes at one place
+        <span class="blinking-underscore">_</span>
+        <span class="fire">🔥</span>
+      </h2>
+      <p>Upload Search And Download Seamlessly  
+      <br>Welcome.  <span class="blinking-underscore">_</span>
+        <span class="heart">❤️</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills">
+    <!-- search bar -->
+    <div class="search-bar">
+      <span class="icon">🔍</span>
+      <input type="text" placeholder="Search Assignments, notes, anything...">
+    </div>
+
+    <a href="#" class="modern-btn">👉 GET STARTED</a>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>MATHS</h3>
+        <button class="download-btn">Download Notes</button>
+      </div>
+      <div class="skill-card">
+        <h3>DBMS</h3>
+        <button class="download-btn">Download Notes</button>
+      </div>
+      <div class="skill-card">
+        <h3>OPERATING SYSTEM</h3>
+        <button class="download-btn">Download Notes</button>
+      </div>
+      <div class="skill-card">
+        <h3>DSA</h3>
+        <button class="download-btn">Download Notes</button>
+      </div>
+      <div class="skill-card">
+        <h3>HTML</h3>
+        <button class="download-btn">Download Notes</button>
+      </div>
+      <div class="skill-card">
+        <h3>CSS</h3>
+        <button class="download-btn">Download Notes</button>
+      </div>
+      <div class="skill-card">
+        <h3>JAVASCRIPT</h3>
+        <button class="download-btn">Download Notes</button>
+      </div>
+      <div class="skill-card">
+        <h3>PYTHON</h3>
+        <button class="download-btn">Download Notes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attendance Section -->
+  <section id="attendancePage" class="attendance-section" style="display:none;">
+  <h2>Attendance</h2>
+  <p>Scan this QR code to mark your attendance:</p>
+  <div id="qrCode"></div>
+
+  <!-- Teacher Control Panel -->
+  <div class="teacher-controls glass-panel">
+    <button id="startAttendance" class="control-btn">🟢 Start Attendance</button>
+    <button id="stopAttendance" class="control-btn">🔴 Stop Attendance</button>
+    <button id="clearList" class="control-btn">🗑 Clear</button>
+    <button id="exportList" class="control-btn">📄 Export</button>
+  </div>
+
+  <!-- Student Counter -->
+  <div class="counter-display">
+    <h3>Total Students Marked: <span id="studentCount">0</span></h3>
+  </div>
+
+  <!-- Attendance List -->
+  <div class="attendance-list glass-panel">
+    <h3>Attendance List</h3>
+    <ul id="attendanceList"></ul>
+  </div>
+
+  <!-- Simulation Area -->
+  <div class="simulation glass-panel">
+    <h3>🎓 Student QR Simulation</h3>
+    <input type="text" id="studentName" placeholder="Enter Student Name">
+    <button id="simulateScan" class="control-btn">Simulate Scan</button>
+  </div>
+</section>
+
+
+  <!-- Upload Section -->
+  <section id="uploadPage" class="upload-section" style="display:none;">
+    <h2>Upload Notes & Assignments</h2>
+    <form id="uploadForm" class="upload-form">
+      <div class="form-group">
+        <label>Select Subject:</label>
+        <select id="subject" required>
+          <option value="">Choose a subject...</option>
+          <option value="maths">MATHS</option>
+          <option value="dbms">DBMS</option>
+          <option value="os">OPERATING SYSTEM</option>
+          <option value="dsa">DSA</option>
+          <option value="html">HTML</option>
+          <option value="css">CSS</option>
+          <option value="javascript">JAVASCRIPT</option>
+          <option value="python">PYTHON</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" id="uploadTitle" placeholder="e.g., Chapter 5 - Calculus Notes" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Description (Optional):</label>
+        <textarea id="uploadDesc" rows="3" placeholder="Brief description..."></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label>Choose File:</label>
+        <input type="file" id="fileUpload" accept=".pdf,.doc,.docx,.ppt,.pptx" required>
+      </div>
+      
+      <button type="submit" class="upload-submit-btn">Upload File</button>
+    </form>
+  </section>
+
+  <!-- Notes Section - NOW SEPARATE FROM UPLOAD -->
+  <section id="notesPage" class="notes-section" style="display:none;">
+    <h2>Notes Library</h2>
+    <p class="notes-subtitle">Browse and download notes by subject</p>
+    
+    <div class="notes-container">
+      <div class="notes-subject-block">
+        <h3>MATHS</h3>
+        <ul class="notes-list">
+          <li>
+            <span>Chapter 1 - Calculus Basics</span>
+            <button class="download-note-btn">Download PDF</button>
+          </li>
+          <li>
+            <span>Chapter 2 - Linear Algebra</span>
+            <button class="download-note-btn">Download PDF</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="notes-subject-block">
+        <h3>DBMS</h3>
+        <ul class="notes-list">
+          <li>
+            <span>SQL Queries Complete Guide</span>
+            <button class="download-note-btn">Download PDF</button>
+          </li>
+          <li>
+            <span>Normalization Explained</span>
+            <button class="download-note-btn">Download PDF</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="notes-subject-block">
+        <h3>OPERATING SYSTEM</h3>
+        <ul class="notes-list">
+          <li>
+            <span>Process Management</span>
+            <button class="download-note-btn">Download PDF</button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="notes-subject-block">
+        <h3>DSA</h3>
+        <ul class="notes-list">
+          <li>
+            <span>Arrays & Strings</span>
+            <button class="download-note-btn">Download PDF</button>
+          </li>
+          <li>
+            <span>Trees & Graphs</span>
+            <button class="download-note-btn">Download PDF</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="login-container">
+      <h2 class="login-title">Welcome Back 👋</h2>
+      <p class="login-subtitle">Sign in to continue to your account</p>
+
+      <form id="loginForm" class="login-form">
+        <div class="input-group">
+          <input type="text" id="username" required>
+          <label for="username">Username</label>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="password" required>
+          <label for="password">Password</label>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+
+      <div class="divider">
+        <span>or continue with</span>
+      </div>
+
+      <div class="social-login">
+        <button class="social-btn google" aria-label="Sign in with Google">
+          <i class="fab fa-google"></i>
+        </button>
+        <button class="social-btn facebook" aria-label="Sign in with Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+      </div>
+
+      <p class="signup-text">
+        Don't have an account? <a href="#">Sign up</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Custom Alert Modal for Attendance -->
+  <div id="customAlert" class="custom-alert-overlay">
+    <div class="custom-alert-box">
+      <div class="alert-icon">🔒</div>
+      <h2 class="alert-title">Login Required</h2>
+      <p class="alert-message">Please login to access the attendance page</p>
+      <button class="alert-btn">OK</button>
+    </div>
+  </div>
+
+
+
+  <!-- Custom Alert Modal for Upload -->
+  <div id="uploadAlert" class="custom-alert-overlay">
+    <div class="custom-alert-box upload-alert-style">
+      <div class="alert-icon">📤</div>
+      <h2 class="alert-title">Authentication Required</h2>
+      <p class="alert-message">You need to be logged in to upload notes and assignments</p>
+      <button class="alert-btn upload-alert-btn">Got It</button>
+    </div>
+  </div>
+
+
+  
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>ABOUT US</h3>
+        <p>Assignments & Notes Hub is a platform created by students, for students. We provide a centralized space to share, access, and organize academic materials seamlessly. Our goal is to make learning resources accessible to everyone.</p>
+        <div class="footer-email">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:hello@noteshub.com">hello@noteshub.com</a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>OUR COMMUNITY</h3>
+        <p>Join our growing community of students sharing knowledge and helping each other succeed. Upload your notes, download resources, and collaborate with peers! 🎓</p>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-users"></i> Student Community</a></li>
+          <li><a href="#"><i class="fas fa-question-circle"></i> Help & Support</a></li>
+          <li><a href="#"><i class="fas fa-heart"></i> Contribute</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>CONNECT WITH US</h3>
+        <p>Follow us on social media for updates, tips, and more resources!</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="social-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p>&copy; 2025 Assignments & Notes Hub. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <span>•</span>
+          <a href="#">Terms of Use</a>
+          <span>•</span>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
