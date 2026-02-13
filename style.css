@@ -964,4 +964,147 @@ nav ul li a:hover {
   transform: translateY(-2px);
 }
 
+/* Dark Mode Toggle Button - Glassy Style (Fixed Position) */
+.dark-mode-toggle {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.15);
+  color: #4f46e5;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: -3px; /* Move it up a bit */
+}
 
+.dark-mode-toggle:hover {
+  background: rgba(167, 139, 250, 0.2);
+  border-color: rgba(167, 139, 250, 0.4);
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.35);
+  transform: scale(1.05);
+}
+
+.dark-mode-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover i {
+  transform: rotate(15deg);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background: #0f0f0f;
+  color: #e5e5e5;
+}
+
+body.dark-mode .hero-banner {
+  background: linear-gradient(135deg, #1a1a1a, #000);
+}
+
+body.dark-mode .skill-card,
+body.dark-mode .notes-subject-block,
+body.dark-mode .upload-form {
+  background: rgba(42, 42, 42, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e5e5e5;
+}
+
+body.dark-mode .skill-card h3,
+body.dark-mode .notes-subject-block h3 {
+  color: #a78bfa;
+}
+
+body.dark-mode .search-bar {
+  background: rgba(42, 42, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .search-bar input {
+  color: #e5e5e5;
+}
+
+body.dark-mode .search-bar input::placeholder {
+  color: #999;
+}
+
+body.dark-mode .modern-btn {
+  background: rgba(167, 139, 250, 0.2);
+  border: 2px solid #a78bfa;
+  color: #a78bfa;
+}
+
+body.dark-mode .modern-btn:hover {
+  background: #a78bfa;
+  color: #000;
+}
+
+body.dark-mode .download-btn,
+body.dark-mode .download-note-btn,
+body.dark-mode .upload-submit-btn {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+}
+
+body.dark-mode nav ul li a {
+  color: #e5e5e5;
+}
+
+body.dark-mode nav ul li a:hover {
+  color: #a78bfa;
+}
+
+body.dark-mode .site-logo,
+body.dark-mode .logo-gradient,
+body.dark-mode .logo-hub {
+  color: #fff;
+}
+
+body.dark-mode .notes-section h2,
+body.dark-mode .upload-section h2,
+body.dark-mode .notes-subtitle {
+  color: #e5e5e5;
+}
+
+body.dark-mode .form-group label {
+  color: #e5e5e5;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+  background: rgba(42, 42, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #e5e5e5;
+}
+
+body.dark-mode .notes-list span {
+  color: #e5e5e5;
+}
+
+body.dark-mode .notes-list li {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode icon change */
+body.dark-mode .dark-mode-toggle i::before {
+  content: "\f185"; /* Sun icon */
+}
+
+body.dark-mode .dark-mode-toggle {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background: rgba(251, 191, 36, 0.2);
+  box-shadow: 0 0 25px rgba(251, 191, 36, 0.4);
+}

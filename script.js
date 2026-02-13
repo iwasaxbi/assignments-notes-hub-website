@@ -43,6 +43,41 @@ document.addEventListener("DOMContentLoaded", function() {
   const listContainer = document.getElementById("attendanceList");
   const studentCount = document.getElementById("studentCount");
 
+  // ================= DARK MODE LOGIC =================
+  
+  const darkModeToggle = document.getElementById("darkModeToggle");
+  const body = document.body;
+
+  // Check if dark mode was previously enabled
+  if (localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+    updateDarkModeIcon();
+  }
+
+  // Toggle dark mode on button click
+  darkModeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    
+    // Save preference to localStorage
+    if (body.classList.contains("dark-mode")) {
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+    }
+    
+    updateDarkModeIcon();
+  });
+
+  // Update icon based on current mode
+  function updateDarkModeIcon() {
+    const icon = darkModeToggle.querySelector("i");
+    if (body.classList.contains("dark-mode")) {
+      icon.className = "fas fa-sun"; // Sun icon for dark mode
+    } else {
+      icon.className = "fas fa-moon"; // Moon icon for light mode
+    }
+  }
+
   // ================= LOGIN LOGIC =================
 
   // Handle Login / Logout button click
